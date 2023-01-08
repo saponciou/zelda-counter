@@ -62,10 +62,10 @@ export default function Home() {
       {/* <div className={styles.container}> */}
       <div className={styles.left_top}>
         {/* How i can make it responsive? */}
-        <Image src={part2} alt="part2" />
+        <Image src={part2} className={styles.imagez} alt="part2" />
       </div>
       <div className={styles.right_top}>
-        <Image src={part1} alt="part1" />
+        <Image src={part1} className={styles.imagez} alt="part1" />
       </div>
       <iframe className={styles.responsive_iframe} src="https://www.youtube.com/embed/2SNF4M_v7wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       <Link href="https://discord.gg/rzelda" className={styles.link}>

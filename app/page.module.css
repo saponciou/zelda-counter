@@ -20,11 +20,18 @@
 .right_top{
   position: absolute;
   top: 0;
-  right: 0;
+  /* move even more to the right */
+  right: -15rem;
+}
+.imagez{
+  width: 100;
+  height: 600;
+
+  z-index: 0;
 }
 .label{
   border-color: #30363d;
-  color: #8b949e;
+  color: #000000;
   border: 1px solid #30363d;
   border-radius: 2em;
   display: inline-block;
@@ -42,6 +49,7 @@
 .responsive_iframe{
   width: 500px;
   height: 280px;
+  z-index: 1;
 }
 /* media for mobile */
 @media (max-width: 768px) {
@@ -51,5 +59,9 @@
   .responsive_iframe{
     width: 325px;
     height: 180px;
+  }
+  .imagez{
+    /* hide image on mobile */
+    display: none;
   }
 }

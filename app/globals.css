@@ -35,6 +35,9 @@
 }
 html,
 body {
+  /* add image as background */
+  color: black;
+  background: url("./images/bg_layer1.png") no-repeat center center fixed;
   max-width: 100vw;
   overflow-x:hidden;
   overflow-y: hidden;
