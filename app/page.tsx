@@ -1,91 +1,57 @@
+'use client';
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from './page.module.css'
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import localFont from '@next/font/local'
+import trifuerza from './images/trifuerza.svg'
 
-const inter = Inter({ subsets: ['latin'] })
+const myFont = localFont({ src: './fonts/hyliaserif.ttf' })
 
 export default function Home() {
+  const countdownEl = useRef(null);
+
+  function updateCountdown() {
+    // Get the current date and time
+    const currentTime = new Date();
+    
+    // Set the date and time of your event here
+    const eventTime = new Date("May 12, 2023 12:00:00");
+    
+    // Calculate the time remaining until the event
+    let timeRemaining = eventTime - currentTime;
+    
+    // Convert the time remaining to days, hours, minutes, and seconds
+    let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    days = days.toString().padStart(2, '0');
+    hours = hours.toString().padStart(2, '0');
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+    
+    // Update the countdown element with the time remaining
+    countdownEl.current.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
+  }
+
+  // Update the countdown every second
+  useEffect(() => {
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <span className={styles.label}>Counter</span>
+      <h2>The Legends of Zelda</h2>
+      <h1>Tears of the Kingdom</h1>
+      {/* <h1 className={styles.countdown}>{countdownEl}</h1> */}
+      <time className={myFont.className} ref={countdownEl}></time>
+      <br></br>
+      {/* <div className={styles.container}> */}
+      <iframe className={styles.responsive_iframe} src="https://www.youtube.com/embed/2SNF4M_v7wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      {/* </div> */}
     </main>
   )
 }
