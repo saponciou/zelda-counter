@@ -26,14 +26,14 @@ export default function Home() {
     let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-    days = days.toString().padStart(2, '0');
-    hours = hours.toString().padStart(2, '0');
-    minutes = minutes.toString().padStart(2, '0');
-    seconds = seconds.toString().padStart(2, '0');
+    
+    let newdays = days.toString().padStart(2, '0');
+    let newhours = hours.toString().padStart(2, '0');
+    let newminutes = minutes.toString().padStart(2, '0');
+    let newseconds = seconds.toString().padStart(2, '0');
     
     // Update the countdown element with the time remaining
-    countdownEl.current.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
+    countdownEl.current.innerHTML = `${newdays}:${newhours}:${newminutes}:${newseconds}`;
   }
 
   // Update the countdown every second
