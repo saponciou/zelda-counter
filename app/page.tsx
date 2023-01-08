@@ -2,6 +2,7 @@
 import styles from './page.module.css'
 import { useEffect } from 'react';
 import localFont from '@next/font/local'
+import Link from 'next/link'
 
 const myFont = localFont({ src: './fonts/hyliaserif.ttf' })
 
@@ -54,6 +55,9 @@ export default function Home() {
       <br></br>
       {/* <div className={styles.container}> */}
       <iframe className={styles.responsive_iframe} src="https://www.youtube.com/embed/2SNF4M_v7wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      <Link href="https://discord.gg/rzelda" className={styles.link}>
+        Join r/Zelda Discord
+      </Link>
       {/* </div> */}
     </main>
   )

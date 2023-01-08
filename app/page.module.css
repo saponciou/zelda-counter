@@ -16,7 +16,11 @@
   padding: 0 7px;
   white-space: nowrap;
 }
-
+.link{
+  color: #5e5e5e;
+  text-decoration: none;
+  font-size: 13px;
+}
 .responsive_iframe{
   width: 500px;
   height: 280px;
