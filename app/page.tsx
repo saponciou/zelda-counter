@@ -3,6 +3,9 @@ import styles from './page.module.css'
 import { useEffect } from 'react';
 import localFont from '@next/font/local'
 import Link from 'next/link'
+import Image from 'next/image'
+import part1 from './images/part1.png'
+import part2 from './images/part2.png'
 
 const myFont = localFont({ src: './fonts/hyliaserif.ttf' })
 
@@ -47,16 +50,26 @@ export default function Home() {
   }, []);
   return (
     <main className={styles.main}>
-      <span className={styles.label}>Counter</span>
+      <div className={styles.label_container}>
+        <span className={styles.label}>Counter</span>
+        <span className={styles.label}>Hype</span>
+      </div>
       <h2>The Legends of Zelda</h2>
       <h1>Tears of the Kingdom</h1>
       {/* <h1 className={styles.countdown}>{countdownEl}</h1> */}
       <time className={myFont.className}></time>
       <br></br>
       {/* <div className={styles.container}> */}
+      <div className={styles.left_top}>
+        {/* How i can make it responsive? */}
+        <Image src={part2} alt="part2" />
+      </div>
+      <div className={styles.right_top}>
+        <Image src={part1} alt="part1" />
+      </div>
       <iframe className={styles.responsive_iframe} src="https://www.youtube.com/embed/2SNF4M_v7wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       <Link href="https://discord.gg/rzelda" className={styles.link}>
-        Join r/Zelda Discord
+      Join r/Zelda Discord
       </Link>
       {/* </div> */}
     </main>

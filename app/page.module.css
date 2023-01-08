@@ -5,6 +5,23 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.label_container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.left_top{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.right_top{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .label{
   border-color: #30363d;
   color: #8b949e;
@@ -15,6 +32,7 @@
   line-height: 18px;
   padding: 0 7px;
   white-space: nowrap;
+  margin-right: 1em;
 }
 .link{
   color: #5e5e5e;
