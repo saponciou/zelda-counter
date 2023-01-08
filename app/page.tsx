@@ -1,15 +1,18 @@
 'use client';
-import Image from 'next/image'
 import styles from './page.module.css'
 import { useEffect } from 'react';
-import { useRef } from 'react';
 import localFont from '@next/font/local'
-import trifuerza from './images/trifuerza.svg'
 
 const myFont = localFont({ src: './fonts/hyliaserif.ttf' })
 
 export default function Home() {
-  const countdownEl = useRef(null);
+  let countdownEl: HTMLElement;
+  if (typeof document === 'undefined') {
+    // during server evaluation
+  } else {
+    // during client's browser evaluation
+    countdownEl = document.querySelector("time") as HTMLElement;
+  }
 
   function updateCountdown() {
     // Get the current date and time
@@ -33,7 +36,7 @@ export default function Home() {
     let newseconds = seconds.toString().padStart(2, '0');
     
     // Update the countdown element with the time remaining
-    countdownEl.current.innerHTML = `${newdays}:${newhours}:${newminutes}:${newseconds}`;
+    countdownEl.innerHTML = `${newdays}:${newhours}:${newminutes}:${newseconds}`;
   }
 
   // Update the countdown every second
@@ -47,7 +50,7 @@ export default function Home() {
       <h2>The Legends of Zelda</h2>
       <h1>Tears of the Kingdom</h1>
       {/* <h1 className={styles.countdown}>{countdownEl}</h1> */}
-      <time className={myFont.className} ref={countdownEl}></time>
+      <time className={myFont.className}></time>
       <br></br>
       {/* <div className={styles.container}> */}
       <iframe className={styles.responsive_iframe} src="https://www.youtube.com/embed/2SNF4M_v7wc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
