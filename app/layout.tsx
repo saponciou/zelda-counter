@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from '@next/font/google'
+import { AnalyticsWrapper } from './components/analytics';
 const inter = Inter()
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {
@@ -10,7 +11,10 @@ export default function RootLayout({children,}: {children: React.ReactNode}) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        {children}
+        <AnalyticsWrapper />
+      </body>
     </html>
   )
 }
