@@ -19,7 +19,7 @@ export default function Home() {
     const eventTime = new Date("May 12, 2023 12:00:00");
     
     // Calculate the time remaining until the event
-    let timeRemaining = eventTime - currentTime;
+    let timeRemaining = eventTime.valueOf() - currentTime.valueOf();
     
     // Convert the time remaining to days, hours, minutes, and seconds
     let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
