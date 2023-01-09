@@ -1,6 +1,7 @@
 export default function Head() {
   return (
     <>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
       <!-- HTML Meta Tags -->
       <title>The TOTK Counter</title>
       <meta name="description" content="The Legends of Zelda TOTK's Live Counter. Made by Sir Sap <3">
