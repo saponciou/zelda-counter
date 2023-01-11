@@ -1,4 +1,4 @@
-'use client';
+'use client'; 
 import styles from './page.module.css'
 import { useEffect } from 'react';
 import localFont from '@next/font/local'
@@ -8,6 +8,7 @@ import part1 from './images/part1.png'
 import part2 from './images/part2.png'
 
 const myFont = localFont({ src: './fonts/hyliaserif.ttf' })
+const font2 = localFont({ src: './fonts/sheikah.ttf' })
 
 export default function Home() {
   let countdownEl: HTMLElement;
@@ -16,7 +17,8 @@ export default function Home() {
   } else {
     // during client's browser evaluation
     countdownEl = document.querySelector("time") as HTMLElement;
-  }
+    console.log("x: " + window.innerWidth+"      y: " + window.innerHeight);
+}
 
   function updateCountdown() {
     // Get the current date and time
@@ -56,6 +58,8 @@ export default function Home() {
       </div>
       <h2>The Legends of Zelda</h2>
       <h1>Tears of the Kingdom</h1>
+      <h6 className={font2.className}>The Legends of Zelda</h6>
+      <h6 className={font2.className}>Tears of the Kingdom</h6> 
       {/* <h1 className={styles.countdown}>{countdownEl}</h1> */}
       <time className={myFont.className}></time>
       <br></br>

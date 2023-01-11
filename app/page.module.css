@@ -65,3 +65,10 @@
     display: none;
   }
 }
+@media (max-width: 1350px) {
+    .responsive_iframe{
+        width: 400px;
+        height: 220px;
+    }
+}
+
